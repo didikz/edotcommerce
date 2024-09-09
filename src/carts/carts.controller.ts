@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Put } from '@nestjs/common';
+import { Controller, Delete, Get, Put, Post } from '@nestjs/common';
 import { CartsService } from './carts.service';
 
 @Controller({
@@ -20,5 +20,10 @@ export class CartsController {
   @Delete()
   deleteItemFromCart() {
     return this.cartService.deleteItem('sku');
+  }
+
+  @Post('checkout')
+  checkoutOrder() {
+    return this.cartService.createOrder();
   }
 }

@@ -22,3 +22,32 @@ An API for EDOTCOMMERCE platform. Consists of
 + adjust database configuration by copying env file `cp .env.example .env`
 + Run migration using `npm run migration:run` or import sql file `edotcommerce.sql` to created database
 + Run API with `npm run start:dev`
+
+## API Documentation
+
+### Authentication
+
+Authentication API is used to authenticate users for accessing protected resources in the application.
+
++ Method: `POST`
++ Endpoint: `/v1/auth`
++ Content-Type: `application/json`
++ Request:
+
+```json
+{
+    "mail_phone": "08123456",
+    "password": "secret123"
+}
+```
+
+> + `mail_phone`: string, required, could be phone number or email address
+> + `password`: string, required
+
++ Response success (200)
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJqb2huZG9lQGdtYWlsLmNvbSIsImlhdCI6MTcyNTgxODQ4MiwiZXhwIjoxNzI1ODIyMDgyfQ.jnf13mRY6S3oD83dCqkLY9hVKRR0ktaEP5cBd0g0NHY"
+}
+```
